@@ -17,19 +17,19 @@ void Player::initPlayer() {
 void Player::keyboardManager() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
     {
-        P_y--;
+        P_y = (P_y - 1) * P_speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        P_y++;
+        P_y = P_y + 1 * P_speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        P_x++;
+        P_x = P_x + 1 * P_speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
     {
-        P_x--;
+        P_x = P_x - 1 * P_speed;
     }
 }
 

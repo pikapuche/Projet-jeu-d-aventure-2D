@@ -6,7 +6,7 @@ void Game::inGame() {
     window.setFramerateLimit(165);
 
 
-    Player player("Joueur", 10, 10, 1.0f, 100);
+    Player player("Joueur", 10, 10, 2.0f, 100);
     PatrollingEnemy patrollEnemy1("Fred", 50, 50, 0.5f, 1, 20);
     ChaserEnemy chaserEnemy1("Patoche", 500, 500, 0.5f, 1, 20);
 
