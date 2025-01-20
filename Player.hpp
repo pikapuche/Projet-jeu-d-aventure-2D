@@ -7,14 +7,14 @@ protected :
 	string P_nom;
 	int P_x, P_y;
 	float P_speed;
-	int P_damage = 0;
 	int P_health = 0;
-	sf::Texture playerTexture;
-	sf::Sprite playerSprite;
 
 public : 
 
-	Player(string n, int x, int y, float sd, int dg, int h);
+	sf::Texture playerTexture;
+	sf::Sprite playerSprite;
+
+	Player(string n, int x, int y, float sd, int h);
 
 	~Player();
 

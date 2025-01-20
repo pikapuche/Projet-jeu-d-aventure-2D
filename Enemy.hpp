@@ -1,9 +1,10 @@
+#pragma once 
 #include "Entity.hpp"
 
 using namespace std;
 
 class Enemy : public Entity {
-protected:
+protected :
 	string E_nom;
 	int E_x, E_y;
 	float E_speed;
@@ -12,7 +13,7 @@ protected:
 	sf::Texture enemyTexture;
 	sf::Sprite enemySprite;
 
-public:
+public : 
 
 	Enemy(string n, int x, int y, float sd, int dg, int h);
 
@@ -24,3 +25,4 @@ public:
 	void draw(sf::RenderWindow& window) override;
 
 };
+

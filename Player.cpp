@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(string n, int x, int y, float sd, int dg, int h) : P_nom(n), P_x(x), P_y(y), P_speed(sd), P_damage(dg), P_health(h) {}
+Player::Player(string n, int x, int y, float sd, int h) : P_nom(n), P_x(x), P_y(y), P_speed(sd), P_health(h) {}
 
 Player::~Player() {}
 
