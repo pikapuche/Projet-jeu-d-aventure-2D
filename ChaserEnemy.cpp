@@ -13,6 +13,7 @@ void ChaserEnemy::initChaserEnemy() {
 	chaserSprite.setTexture(chaserTexture);
 
 	chaserSprite.setPosition(500, 500);
+
 }
 
 void ChaserEnemy::chasePatern(sf::Sprite player) {
@@ -33,11 +34,12 @@ void ChaserEnemy::chasePatern(sf::Sprite player) {
 void ChaserEnemy::catchPlayer(sf::Sprite player) {
 	if (chaserSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Green);
+		cout << "Game over";
 	}
 }
 
 void ChaserEnemy::update(float deltaTime) {
-	chaserSprite.setPosition(E_x, E_y);
+	chaserSprite.setPosition(E_x * E_speed, E_y * E_speed);
 }
 
 void ChaserEnemy::draw(sf::RenderWindow& window) {

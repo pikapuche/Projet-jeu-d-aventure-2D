@@ -17,26 +17,44 @@ void Player::initPlayer() {
 void Player::keyboardManager() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
     {
-        P_y = (P_y - 1) * P_speed;
+        P_y--; 
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        P_y = P_y + 1 * P_speed;
+        P_y++; 
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        P_x = P_x + 1 * P_speed;
+        P_x++; 
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
     {
-        P_x = P_x - 1 * P_speed;
+        P_x--; 
     }
 }
 
 void Player::update(float deltaTime) {
-    playerSprite.setPosition(P_x, P_y);
+    playerSprite.setPosition(P_x * P_speed, P_y * P_speed);
 }
 
 void Player::draw(sf::RenderWindow& window) {
     window.draw(playerSprite);
+}
+
+int Player::getX() {
+    return P_x;
+}
+
+int Player::getY() {
+    return P_y;
+}
+
+float Player::lessSpeed(float sd) {
+    P_speed -= sd;
+    return P_speed;
+}
+
+float Player::giveSpeed(float sd) {
+    P_speed = P_speed + sd;
+    return P_speed;
 }

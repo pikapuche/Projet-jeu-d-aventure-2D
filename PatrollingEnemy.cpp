@@ -29,8 +29,8 @@ void PatrollingEnemy::initPatrollingEnemy() {
 	yPointTexture.setSmooth(true);
 	yPointSprite.setTexture(yPointTexture);
 
-	xPointSprite.setPosition(600, E_y);
-	yPointSprite.setPosition(E_x, E_y);
+	xPointSprite.setPosition(600, E_y * E_speed);
+	yPointSprite.setPosition(E_x, E_y * E_speed);
 }
 
 void PatrollingEnemy::patrolPatern() {
@@ -46,6 +46,7 @@ void PatrollingEnemy::patrolPatern() {
 void PatrollingEnemy::catchPlayer(sf::Sprite player) {
 	if (patrollSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Transparent);
+		cout << "Game Over";
 	}
 }
 
@@ -59,7 +60,7 @@ void PatrollingEnemy::moving(int coordX) {
 }
 
 void PatrollingEnemy::update(float deltaTime) {
-	patrollSprite.setPosition(E_x, E_y);
+	patrollSprite.setPosition(E_x * E_speed, E_y * E_speed);
 }
 
 void PatrollingEnemy::draw(sf::RenderWindow& window) {
