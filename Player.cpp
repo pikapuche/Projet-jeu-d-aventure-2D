@@ -5,7 +5,7 @@ Player::Player(string n, int x, int y, float sd, int h) : P_nom(n), P_x(x), P_y(
 Player::~Player() {}
 
 void Player::initPlayer() {
-    if (!playerTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Carré_rouge.svg.png"))
+    if (!playerTexture.loadFromFile("C:\\Users\\quent\\source\\repos\\Projet jeu d'aventure 2D\\Assets\\Skeleton.png"))
     {
         cout << "Big error wtf playerTexture not working omg" << endl << endl;
     }
@@ -14,27 +14,28 @@ void Player::initPlayer() {
     playerSprite.setTexture(playerTexture);
 }
 
-void Player::keyboardManager() {
+void Player::keyboardManager(sf::Sprite& player) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
     {
-        P_y--; 
+        player.move(0, -1 * P_speed);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        P_y++; 
+        player.move(0, 1 * P_speed);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        P_x++; 
+        player.move(1 * P_speed, 0);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
     {
-        P_x--; 
+        player.move(-1 * P_speed, 0);
     }
 }
 
 void Player::update(float deltaTime) {
-    playerSprite.setPosition(P_x * P_speed, P_y * P_speed);
+    getSpeed();
+    keyboardManager(playerSprite);
 }
 
 void Player::draw(sf::RenderWindow& window) {
@@ -50,11 +51,15 @@ int Player::getY() {
 }
 
 float Player::lessSpeed(float sd) {
-    P_speed -= sd;
+    P_speed = P_speed - sd;
     return P_speed;
 }
 
 float Player::giveSpeed(float sd) {
     P_speed = P_speed + sd;
+    return P_speed;
+}
+
+float Player::getSpeed() {
     return P_speed;
 }

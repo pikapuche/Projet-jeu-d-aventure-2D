@@ -5,6 +5,7 @@
 #include "ChaserEnemy.hpp"
 #include "Potion.hpp"
 #include "Key.hpp"
+#include "Map.hpp"
 
 class Game {
 public : 

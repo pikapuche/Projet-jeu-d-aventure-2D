@@ -144,6 +144,7 @@
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Objects.cpp" />
     <ClCompile Include="PatrollingEnemy.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Interface.hpp" />
     <ClInclude Include="Key.hpp" />
+    <ClInclude Include="Map.hpp" />
     <ClInclude Include="Objects.hpp" />
     <ClInclude Include="PatrollingEnemy.hpp" />
     <ClInclude Include="Player.hpp" />

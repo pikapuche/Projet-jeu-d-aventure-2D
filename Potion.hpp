@@ -5,14 +5,16 @@
 class Potion : public Objects {
 protected : 
 	int potionCount = 0;
-	sf::Texture potionTexture;
-	sf::Sprite potionSprite;
+	float finDuChrono = 3.0f;
 	bool potionDepop = false;
 	bool takePotion = false;
 
 	sf::Clock tempsPotion;
 
 public : 
+
+	sf::Texture potionTexture;
+	sf::Sprite potionSprite;
 
 	Potion(string n, int x, int y);
 
@@ -26,9 +28,9 @@ public :
 
 	bool setDepop();
 
-	void glouglou(Player& player);
+	void glouglou(Player& player, sf::Sprite& playerSprite);
 
-	void stopGlouglou(Player& player);
+	void stopGlouglou(Player& player, sf::Sprite& playerSprite);
 
 	void update(float deltaTime) override;
 

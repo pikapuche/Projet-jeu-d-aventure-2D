@@ -19,9 +19,9 @@ void Key::useKey() {
 }
 
 void Key::interact(Player& player) {
-	if (player.playerSprite.getGlobalBounds().intersects(keySprite.getGlobalBounds())) {
+	if (player.playerSprite.getGlobalBounds().intersects(keySprite.getGlobalBounds()) && sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		keyCount++;
-		cout << nom << "+1" << endl << endl;
+		cout << nom << "+ 1" << endl << endl;
 		keyDepop = true;
 	}
 }

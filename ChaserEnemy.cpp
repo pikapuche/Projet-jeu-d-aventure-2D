@@ -16,7 +16,7 @@ void ChaserEnemy::initChaserEnemy() {
 
 }
 
-void ChaserEnemy::chasePatern(sf::Sprite player) {
+void ChaserEnemy::chasePatern(sf::Sprite& player) {
 	if (player.getPosition().x >= chaserSprite.getPosition().x) {
 		E_x++;
 	}
@@ -31,10 +31,10 @@ void ChaserEnemy::chasePatern(sf::Sprite player) {
 	}
 }
 
-void ChaserEnemy::catchPlayer(sf::Sprite player) {
+void ChaserEnemy::catchPlayer(sf::Sprite& player) {
 	if (chaserSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Green);
-		cout << "Game over";
+		//cout << "Game over";
 	}
 }
 

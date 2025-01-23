@@ -43,10 +43,10 @@ void PatrollingEnemy::patrolPatern() {
 
 }
 
-void PatrollingEnemy::catchPlayer(sf::Sprite player) {
+void PatrollingEnemy::catchPlayer(sf::Sprite& player) {
 	if (patrollSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Transparent);
-		cout << "Game Over";
+		//cout << "Game Over";
 	}
 }
 

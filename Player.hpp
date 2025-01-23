@@ -21,11 +21,13 @@ public :
 	~Player();
 
 	void initPlayer();
-	void keyboardManager();
+	void keyboardManager(sf::Sprite& player);
 
 	int getX();
 
 	int getY();
+
+	float getSpeed();
 
 	float lessSpeed(float sd);
 

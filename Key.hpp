@@ -4,10 +4,11 @@
 class Key : public Objects {
 protected : 
 	int keyCount = 0;
-	sf::Texture keyTexture;
-	sf::Sprite keySprite;
 	bool keyDepop = false;
 public : 
+
+	sf::Texture keyTexture;
+	sf::Sprite keySprite;
 
 	Key(string n, int x, int y);
 
