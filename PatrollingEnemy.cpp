@@ -1,5 +1,6 @@
 #include "PatrollingEnemy.hpp"
 #include <Windows.h>
+#include <thread>
 
 PatrollingEnemy::PatrollingEnemy(string n, int x, int y, float sd) : Enemy(n, x, y, sd) {}
 
@@ -9,21 +10,21 @@ void PatrollingEnemy::initPatrollingEnemy() {
 
 	turn = false;
 
-	if (!patrollTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\Carré_vert.jpg"))
+	if (!patrollTexture.loadFromFile("Assets/Carré_vert.jpg"))
 	{
 		cout << "Big error wtf patrollTexture not working omg" << endl << endl;
 	}
 	patrollTexture.setSmooth(true);
 	patrollSprite.setTexture(patrollTexture);
 
-	if (!xPointTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\Carré Violet.png"))
+	if (!xPointTexture.loadFromFile("Assets/Carré Violet.png"))
 	{
 		cout << "Big error wtf xPointTexture not working omg" << endl << endl;
 	}
 	xPointTexture.setSmooth(true);
 	xPointSprite.setTexture(xPointTexture);
 
-	if (!yPointTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\Carré Violet.png"))
+	if (!yPointTexture.loadFromFile("Assets/Carré Violet.png"))
 	{
 		cout << "Big error wtf yPointTexture not working omg" << endl << endl;
 	}
@@ -33,7 +34,7 @@ void PatrollingEnemy::initPatrollingEnemy() {
 	xPointSprite.setPosition(900, E_y * E_speed);
 	yPointSprite.setPosition(E_x, E_y * E_speed);
 
-	if (!font.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\Font\\minecraft\\Minecraft.ttf"))
+	if (!font.loadFromFile("Assets/Minecraft.ttf"))
 	{
 		cout << "error font" << endl << endl;
 	}
@@ -56,6 +57,7 @@ void PatrollingEnemy::catchPlayer(sf::Sprite& player) {
 		gameOver.setString("GAME OVER HAHAHAHA");
 		gameOver.setCharacterSize(100);
 		gameOver.setPosition(360, 440);
+		cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
 	}
 	else {
 		player.setColor(sf::Color::White);
@@ -84,7 +86,7 @@ void PatrollingEnemy::draw(sf::RenderWindow& window) {
 	if (kill)
 	{
 		window.draw(gameOver);
-		Sleep(3000);
+		this_thread::sleep_for(std::chrono::seconds(3));
 		window.close();
 	}
 }

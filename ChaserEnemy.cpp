@@ -1,12 +1,13 @@
 #include "ChaserEnemy.hpp"
 #include <Windows.h>
+#include <thread>
 
 ChaserEnemy::ChaserEnemy(string n, int x, int y, float sd) : Enemy(n, x, y, sd) {}
 
 ChaserEnemy::~ChaserEnemy() {}
 
 void ChaserEnemy::initChaserEnemy() {
-	if (!chaserTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\Carré_bleu.jpg"))
+	if (!chaserTexture.loadFromFile("Assets/Carré_bleu.jpg"))
 	{
 		cout << "Big error wtf chaserTexture not working omg" << endl << endl;
 	}
@@ -15,7 +16,7 @@ void ChaserEnemy::initChaserEnemy() {
 
 	chaserSprite.setPosition(500, 500);
 
-	if (!font.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\Font\\minecraft\\Minecraft.ttf"))
+	if (!font.loadFromFile("Assets/Minecraft.ttf"))
 	{
 		cout << "error font" << endl << endl;
 	}
@@ -45,6 +46,7 @@ void ChaserEnemy::catchPlayer(sf::Sprite& player) {
 		gameOver.setCharacterSize(100);
 		gameOver.setPosition(360, 440);
 		kill = true;
+		cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
 	}
 	else {
 		player.setColor(sf::Color::White);
@@ -60,7 +62,7 @@ void ChaserEnemy::draw(sf::RenderWindow& window) {
 
 	if (kill) {
 		window.draw(gameOver);
-		Sleep(3000);
+		this_thread::sleep_for(std::chrono::seconds(3));
 		window.close();
 	}
 

@@ -5,7 +5,7 @@ Player::Player(string n, int x, int y, float sd) : P_nom(n), P_x(x), P_y(y), P_s
 Player::~Player() {}
 
 void Player::initPlayer() {
-    if (!playerTexture.loadFromFile("C:\\Users\\quent\\source\\repos\\Projet jeu d'aventure 2D\\Assets\\Skeleton.png"))
+    if (!playerTexture.loadFromFile("Assets\\Skeleton.png"))
     {
         cout << "Big error wtf playerTexture not working omg" << endl << endl;
     }

@@ -6,7 +6,7 @@ Key::~Key() {}
 
 void Key::initKey() {
 
-	if (!keyTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\La c'est les vrais assets\\Key 2D2.png"))
+	if (!keyTexture.loadFromFile("Assets/Key 2D2.png"))
 	{
 		cout << "Big error wtf keyTexture not working omg" << endl << endl;
 	}

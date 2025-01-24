@@ -5,6 +5,7 @@
 #include "Potion.hpp"
 #include "Key.hpp"
 #include <windows.h>
+#include <thread>
 
 bool Map::loadFromFile(string filename) { // permet de verif si le fichier txt est importé
 	ifstream file(filename);
@@ -18,7 +19,7 @@ bool Map::loadFromFile(string filename) { // permet de verif si le fichier txt e
 		vector_Map.push_back(line);
 	}
 
-	if (!font.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\Font\\minecraft\\Minecraft.ttf"))
+	if (!font.loadFromFile("Assets/Minecraft.ttf"))
 	{
 		cout << "error font" << endl << endl;
 	}
@@ -39,7 +40,7 @@ void Map::drawMap(sf::RenderWindow& window) {
 			window.draw(tile);
 			if (winGame) {
 				window.draw(win);
-				Sleep(3000);
+				this_thread::sleep_for(std::chrono::seconds(3));
 				window.close();
 			}
 		}
@@ -70,6 +71,7 @@ void Map::collisionMap(sf::Sprite& player, Key& key) {
 					win.setCharacterSize(100);
 					win.setPosition(360, 440);
 					winGame = true;
+					cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
 				}
 				break;
 

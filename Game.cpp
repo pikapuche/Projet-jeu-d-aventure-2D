@@ -7,7 +7,7 @@ void Game::inGame() {
 
     Map map;
 
-    map.loadFromFile("C:\\Users\\quent\\source\\repos\\Projet jeu d'aventure 2D\\Assets\\Map\\fichier_txt_map.txt");
+    map.loadFromFile("Assets/fichier_txt_map.txt");
     map.initAll();
 
 

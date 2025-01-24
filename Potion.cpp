@@ -6,7 +6,7 @@ Potion::~Potion() {}
 
 void Potion::initPotion() {
 
-	if (!potionTexture.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\C++\\TileSheets projet\\Aventure 2D\\La c'est les vrais assets\\potion2.png"))
+	if (!potionTexture.loadFromFile("Assets/potion2.png"))
 	{
 		cout << "Big error wtf potionTexture not working omg" << endl << endl;
 	}
