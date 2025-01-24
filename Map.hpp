@@ -3,6 +3,11 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include "Player.hpp"
+#include "PatrollingEnemy.hpp"
+#include "ChaserEnemy.hpp"
+#include "Potion.hpp"
+#include "Key.hpp"
 
 using namespace std;
 
@@ -11,20 +16,26 @@ protected :
 	sf::Texture groundTexture;
 	sf::Texture wallTexture;
 
-public : 
-	int gameCount = 0;
+	sf::Text win;
+	sf::Font font;
 
-	//const int TILE_SIZE = 32;
+	bool winGame = false;
+
+public :
+
+	vector<Player*> vector_player;
+	vector<PatrollingEnemy*> vector_patroll;
+	vector<ChaserEnemy*> vector_chaser;
+	vector<Potion*> vector_potion;
+	vector<Key*> vector_key;
+
+	~Map();
 
 	vector<string> vector_Map;
+
+	void initAll();
+
 	bool loadFromFile(string filename);
-	void drawMap(sf::RenderWindow& window, sf::Sprite& player, sf::Sprite& patroll, sf::Sprite& chaser, sf::Sprite& potion, sf::Sprite& key);
-	void drawPlayer(sf::RenderWindow& window, sf::Sprite& player);
-	void drawPatroll(sf::RenderWindow& window, sf::Sprite& patroll);
-	void drawChaser(sf::RenderWindow& window, sf::Sprite& chaser);
-
-
-	void openDoor();
-	int getGameCount();
-	int setGameCount(int g);
+	void drawMap(sf::RenderWindow& window);
+	void collisionMap(sf::Sprite& player, Key& key);
 };

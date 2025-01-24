@@ -14,10 +14,6 @@ void Key::initKey() {
 	keySprite.setTexture(keyTexture);
 }
 
-void Key::useKey() {
-	// ouvre une porte ? / coffre 
-}
-
 void Key::interact(Player& player) {
 	if (player.playerSprite.getGlobalBounds().intersects(keySprite.getGlobalBounds()) && sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		keyCount++;
@@ -32,7 +28,6 @@ bool Key::getDepop() {
 
 void Key::update(float deltaTime) {
 	keySprite.setPosition(x, y);
-	// animations ?
 }
 
 void Key::draw(sf::RenderWindow& window) {

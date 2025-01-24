@@ -1,15 +1,18 @@
+#pragma once 
 #include "Enemy.hpp"
 
 class ChaserEnemy : public Enemy {
 protected : 
 	bool turn = false;
+	bool kill = false;
+	bool end = false;
 
 public:
 
 	sf::Texture chaserTexture;
 	sf::Sprite chaserSprite;
 
-	ChaserEnemy(string n, int x, int y, float sd, int dG, int h);
+	ChaserEnemy(string n, int x, int y, float sd);
 
 	~ChaserEnemy();
 

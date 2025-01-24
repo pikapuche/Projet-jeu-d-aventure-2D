@@ -16,7 +16,7 @@ public :
 	sf::Sprite playerSprite;
 
 
-	Player(string n, int x, int y, float sd, int h);
+	Player(string n, int x, int y, float sd);
 
 	~Player();
 
@@ -24,6 +24,10 @@ public :
 	void keyboardManager(sf::Sprite& player);
 
 	int getX();
+
+	int setX(int x);
+
+	int setY(int y);
 
 	int getY();
 

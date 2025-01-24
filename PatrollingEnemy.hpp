@@ -1,8 +1,10 @@
+#pragma once 
 #include "Enemy.hpp"
 
 class PatrollingEnemy : public Enemy {
 protected : 
 	bool turn = false;
+	bool kill = false;
 
 	sf::Texture xPointTexture;
 	sf::Sprite xPointSprite;
@@ -14,7 +16,7 @@ public :
 	sf::Texture patrollTexture;
 	sf::Sprite patrollSprite;
 
-	PatrollingEnemy(string n, int x, int y, float sd, int dG, int h);
+	PatrollingEnemy(string n, int x, int y, float sd);
 
 	~PatrollingEnemy();
 

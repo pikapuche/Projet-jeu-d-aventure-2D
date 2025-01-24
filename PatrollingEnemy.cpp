@@ -1,6 +1,7 @@
 #include "PatrollingEnemy.hpp"
+#include <Windows.h>
 
-PatrollingEnemy::PatrollingEnemy(string n, int x, int y, float sd, int dG, int h) : Enemy(n, x, y, sd, dG, h) {}
+PatrollingEnemy::PatrollingEnemy(string n, int x, int y, float sd) : Enemy(n, x, y, sd) {}
 
 PatrollingEnemy::~PatrollingEnemy() {}
 
@@ -29,8 +30,13 @@ void PatrollingEnemy::initPatrollingEnemy() {
 	yPointTexture.setSmooth(true);
 	yPointSprite.setTexture(yPointTexture);
 
-	xPointSprite.setPosition(600, E_y * E_speed);
+	xPointSprite.setPosition(900, E_y * E_speed);
 	yPointSprite.setPosition(E_x, E_y * E_speed);
+
+	if (!font.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\Font\\minecraft\\Minecraft.ttf"))
+	{
+		cout << "error font" << endl << endl;
+	}
 }
 
 void PatrollingEnemy::patrolPatern() {
@@ -45,8 +51,14 @@ void PatrollingEnemy::patrolPatern() {
 
 void PatrollingEnemy::catchPlayer(sf::Sprite& player) {
 	if (patrollSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
-		player.setColor(sf::Color::Transparent);
-		//cout << "Game Over";
+		player.setColor(sf::Color::Red);
+		gameOver.setFont(font);
+		gameOver.setString("GAME OVER HAHAHAHA");
+		gameOver.setCharacterSize(100);
+		gameOver.setPosition(360, 440);
+	}
+	else {
+		player.setColor(sf::Color::White);
 	}
 }
 
@@ -68,4 +80,11 @@ void PatrollingEnemy::draw(sf::RenderWindow& window) {
 
 	window.draw(xPointSprite);
 	window.draw(yPointSprite);
+
+	if (kill)
+	{
+		window.draw(gameOver);
+		Sleep(3000);
+		window.close();
+	}
 }

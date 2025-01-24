@@ -1,6 +1,7 @@
 #include "ChaserEnemy.hpp"
+#include <Windows.h>
 
-ChaserEnemy::ChaserEnemy(string n, int x, int y, float sd, int dG, int h) : Enemy(n, x, y, sd, dG, h) {}
+ChaserEnemy::ChaserEnemy(string n, int x, int y, float sd) : Enemy(n, x, y, sd) {}
 
 ChaserEnemy::~ChaserEnemy() {}
 
@@ -14,19 +15,24 @@ void ChaserEnemy::initChaserEnemy() {
 
 	chaserSprite.setPosition(500, 500);
 
+	if (!font.loadFromFile("C:\\Users\\quent\\OneDrive\\Pictures\\Font\\minecraft\\Minecraft.ttf"))
+	{
+		cout << "error font" << endl << endl;
+	}
+
 }
 
 void ChaserEnemy::chasePatern(sf::Sprite& player) {
-	if (player.getPosition().x >= chaserSprite.getPosition().x) {
+	if (player.getPosition().x + 32 >= chaserSprite.getPosition().x) {
 		E_x++;
 	}
-	else if (player.getPosition().x <= chaserSprite.getPosition().x) {
+	else if (player.getPosition().x - 32 <= chaserSprite.getPosition().x) {
 		E_x--;
 	}
-	if (player.getPosition().y >= chaserSprite.getPosition().y) {
+	if (player.getPosition().y + 32 >= chaserSprite.getPosition().y) {
 		E_y++;
 	}
-	else if (player.getPosition().y <= chaserSprite.getPosition().y) {
+	else if (player.getPosition().y - 32 <= chaserSprite.getPosition().y) {
 		E_y--;
 	}
 }
@@ -34,7 +40,14 @@ void ChaserEnemy::chasePatern(sf::Sprite& player) {
 void ChaserEnemy::catchPlayer(sf::Sprite& player) {
 	if (chaserSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Green);
-		//cout << "Game over";
+		gameOver.setFont(font);
+		gameOver.setString("GAME OVER HAHAHAHA");
+		gameOver.setCharacterSize(100);
+		gameOver.setPosition(360, 440);
+		kill = true;
+	}
+	else {
+		player.setColor(sf::Color::White);
 	}
 }
 
@@ -44,4 +57,11 @@ void ChaserEnemy::update(float deltaTime) {
 
 void ChaserEnemy::draw(sf::RenderWindow& window) {
 	window.draw(chaserSprite);
+
+	if (kill) {
+		window.draw(gameOver);
+		Sleep(3000);
+		window.close();
+	}
+
 }

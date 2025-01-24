@@ -13,9 +13,11 @@ protected :
 	sf::Texture enemyTexture;
 	sf::Sprite enemySprite;
 
+	sf::Text gameOver;
+	sf::Font font;
 public : 
 
-	Enemy(string n, int x, int y, float sd, int dg, int h);
+	Enemy(string n, int x, int y, float sd);
 
 	~Enemy();
 

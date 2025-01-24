@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(string n, int x, int y, float sd, int h) : P_nom(n), P_x(x), P_y(y), P_speed(sd), P_health(h) {}
+Player::Player(string n, int x, int y, float sd) : P_nom(n), P_x(x), P_y(y), P_speed(sd) {}
 
 Player::~Player() {}
 
@@ -34,6 +34,8 @@ void Player::keyboardManager(sf::Sprite& player) {
 }
 
 void Player::update(float deltaTime) {
+    getX();
+    getY();
     getSpeed();
     keyboardManager(playerSprite);
 }
@@ -46,7 +48,17 @@ int Player::getX() {
     return P_x;
 }
 
+int Player::setX(int x) {
+    P_x += x;
+    return P_x;
+}
+
 int Player::getY() {
+    return P_y;
+}
+
+int Player::setY(int y) {
+    P_x += y;
     return P_y;
 }
 
