@@ -34,6 +34,9 @@ void PatrollingEnemy::initPatrollingEnemy() {
 	xPointSprite.setPosition(900, E_y * E_speed);
 	yPointSprite.setPosition(E_x, E_y * E_speed);
 
+	xPointSprite.setColor(sf::Color::Transparent);
+	yPointSprite.setColor(sf::Color::Transparent);
+
 	if (!font.loadFromFile("Assets/Minecraft.ttf"))
 	{
 		cout << "error font" << endl << endl;
