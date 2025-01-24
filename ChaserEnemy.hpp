@@ -19,7 +19,7 @@ public:
 	void initChaserEnemy();
 
 	void chasePatern(sf::Sprite& player);
-	void catchPlayer(sf::Sprite& player);
+	void catchPlayer(sf::Sprite& player, sf::RenderWindow& window);
 
 	void update(float deltaTime) override;
 	void draw(sf::RenderWindow& window) override;

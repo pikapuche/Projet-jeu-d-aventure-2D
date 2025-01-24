@@ -39,7 +39,6 @@ void Map::drawMap(sf::RenderWindow& window) {
 			tile.setPosition(j * 40.f, i * 40.f);
 			window.draw(tile);
 			if (winGame) {
-				window.draw(win);
 				this_thread::sleep_for(std::chrono::seconds(3));
 				window.close();
 			}
@@ -48,7 +47,7 @@ void Map::drawMap(sf::RenderWindow& window) {
 
 }
 
-void Map::collisionMap(sf::Sprite& player, Key& key) {
+void Map::collisionMap(sf::Sprite& player, Key& key, sf::RenderWindow& window) {
 	if (vector_Map.empty()) return;
 	sf::RectangleShape tile(sf::Vector2f(40, 40));
 
@@ -72,6 +71,7 @@ void Map::collisionMap(sf::Sprite& player, Key& key) {
 					win.setPosition(360, 440);
 					winGame = true;
 					cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
+					window.draw(win);
 				}
 				break;
 

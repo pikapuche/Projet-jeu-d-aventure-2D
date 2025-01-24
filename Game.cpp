@@ -51,7 +51,7 @@ void Game::inGame() {
         for (auto& players : map.vector_player) {
             players->update(1);
             for (auto& keys : map.vector_key) {
-                map.collisionMap(players->playerSprite, *keys);
+                map.collisionMap(players->playerSprite, *keys, window);
             }
             players->draw(window);
         }
@@ -60,7 +60,7 @@ void Game::inGame() {
             patrollers->moving(1);
             patrollers->patrolPatern();
             for (auto& players : map.vector_player) {
-                patrollers->catchPlayer(players->playerSprite);
+                patrollers->catchPlayer(players->playerSprite, window);
             }
             patrollers->update(1);
             patrollers->draw(window);
@@ -69,7 +69,7 @@ void Game::inGame() {
         for (auto& chasers : map.vector_chaser) {
             for (auto& players : map.vector_player) {
                 chasers->chasePatern(players->playerSprite);
-                chasers->catchPlayer(players->playerSprite);
+                chasers->catchPlayer(players->playerSprite, window);
             }
             chasers->update(1);
             chasers->draw(window);

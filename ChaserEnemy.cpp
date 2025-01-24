@@ -38,7 +38,7 @@ void ChaserEnemy::chasePatern(sf::Sprite& player) {
 	}
 }
 
-void ChaserEnemy::catchPlayer(sf::Sprite& player) {
+void ChaserEnemy::catchPlayer(sf::Sprite& player, sf::RenderWindow& window) {
 	if (chaserSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Green);
 		gameOver.setFont(font);
@@ -47,6 +47,7 @@ void ChaserEnemy::catchPlayer(sf::Sprite& player) {
 		gameOver.setPosition(360, 440);
 		kill = true;
 		cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
+		window.draw(gameOver);
 	}
 	else {
 		player.setColor(sf::Color::White);

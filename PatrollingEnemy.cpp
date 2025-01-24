@@ -50,7 +50,7 @@ void PatrollingEnemy::patrolPatern() {
 
 }
 
-void PatrollingEnemy::catchPlayer(sf::Sprite& player) {
+void PatrollingEnemy::catchPlayer(sf::Sprite& player, sf::RenderWindow& window) {
 	if (patrollSprite.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		player.setColor(sf::Color::Red);
 		gameOver.setFont(font);
@@ -58,6 +58,7 @@ void PatrollingEnemy::catchPlayer(sf::Sprite& player) {
 		gameOver.setCharacterSize(100);
 		gameOver.setPosition(360, 440);
 		cout << "VOUS ETES MORT BOUUUUUUUUUUUUUUUU" << endl << endl;
+		window.draw(gameOver);
 	}
 	else {
 		player.setColor(sf::Color::White);
@@ -85,7 +86,6 @@ void PatrollingEnemy::draw(sf::RenderWindow& window) {
 
 	if (kill)
 	{
-		window.draw(gameOver);
 		this_thread::sleep_for(std::chrono::seconds(3));
 		window.close();
 	}

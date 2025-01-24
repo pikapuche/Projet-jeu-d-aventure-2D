@@ -37,5 +37,5 @@ public :
 
 	bool loadFromFile(string filename);
 	void drawMap(sf::RenderWindow& window);
-	void collisionMap(sf::Sprite& player, Key& key);
+	void collisionMap(sf::Sprite& player, Key& key, sf::RenderWindow& window);
 };

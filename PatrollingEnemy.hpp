@@ -23,7 +23,7 @@ public :
 	void initPatrollingEnemy();
 
 	void patrolPatern();
-	void catchPlayer(sf::Sprite& player);
+	void catchPlayer(sf::Sprite& player, sf::RenderWindow& window);
 	void moving(int coordX);
 
 	void update(float deltaTime) override;
